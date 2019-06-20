@@ -1,0 +1,29 @@
+<div class="calendar">
+  <div class="calendar-nav">
+    <div class="calendar-nav-previous-month">
+      <button class="button is-text transparent" (click) = "modifyCurrentMonth(-1)">
+        <i class="fa fa-chevron-left" ></i>
+      </button>
+    </div>
+    <div>{{currentDate.format('MMMM YYYY')}}</div>
+    <div class="calendar-nav-next-month">
+      <button class="button is-text transparent" (click) = "modifyCurrentMonth(1)">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <div class="calendar-date"
+        *ngFor = "let day of headerArr">
+        {{day}}
+      </div>
+    </div>
+    <div class="calendar-body">
+      <div *ngFor = "let day of gridArr" class="calendar-date" >
+        <button *ngIf = "day.value !== 0" (click)="selectDay(day)" class="date-item">{{day.value}}</button>
+        <button *ngIf = "day.value === 0" class="date-item"></button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Date Picker" (click)="toggle()" name="date" value="" [(ngModel)]="selectedDate">
+    <div class="input-group-append" (click)="toggle()">
+      <span class="input-group-text" id="basic-addon2"><a><i class="fa fa-calendar"></i></a></span>
+    </div>
+  </div>
+
+  <div *ngIf="showDatePicker">
+    
+    <app-date-picker (emitSelectedDate) = "setSelectedDate($event)"></app-date-picker>
+
+  </div>
+</div>
